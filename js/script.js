@@ -19,12 +19,27 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
 //GLOBAL VARIABLES
-
-
-
+ var you = "";
+ var com = "";
+ var winner = ""
+ var choises = ["rock","paper","sissors"];
+  
 //FUNCTIONS
-
+ 
 
 
 // DOCUMENT READY FUNCTION
-
+/*global $*/
+    $(document).ready(function() {
+        console.log("human");
+        $("#submit").click(function(){
+           if($("#type").val()==="rock" || "paper" || "sissors"){
+                you = $("#type").val();
+                console.log(you);
+           } else {
+                console.log("invalid");
+           }
+           
+        });
+        
+    });

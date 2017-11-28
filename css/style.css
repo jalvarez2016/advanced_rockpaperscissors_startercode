@@ -1,1 +1,16 @@
+body{
+    text-align: center;
+}
 
+#you {
+    float:left;
+}
+
+#com {
+    float:right;
+}
+
+#fate {
+    position: relative;
+    top:50px;
+}

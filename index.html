@@ -2,14 +2,14 @@
 <html>
 
   <head>
-      <title>RPS Game</title>
-      <!-- Link CSS here -->
+      <title>RPS Game (the game of death)</title>
       
-      <!-- Link JQuery here -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <link href="css/style.css" rel="stylesheet">
+      <link rel="icon" href="#">
+      <script src="js/script.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       
-      <!-- Link Javascript File here -->
-      
-      <!-- Latest compiled and minified Bootstrap CSS -->
       
   </head>
 
@@ -23,10 +23,25 @@
         6. Add a div to record the Winner.
      -->
     <div class="container text-center">
-    
+      <h1>RPS</h1>
+      <p>You can pick one of three choises. Keep in mind that your choises can make the differences between life and death. You win, you live. You lose, you die. Don't let the computures take over. Oh wait theese are supposed to be instruction.... good luck!</p>
+      <img src="http://static1.squarespace.com/static/595543f6b11be1695b0fdb29/t/59555414cd0f68572370bb64/1498764324553/DFP-RockPaperScissors-Black.png?format=1000w">
       
-
-
+      <div class="row">
+        <div class="col-md-12" id="pick">
+          <input id="type" placeholder="Take your pick">
+          <button id="submit">You sure</button>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6" id="you">Your Pick</div>
+        <div class="col-md-6" id="com">Computers Pick</div>
+      </div>
+      
+      
+      
+      <div id="fate">And the winner is</div>
     
     </div>
 
