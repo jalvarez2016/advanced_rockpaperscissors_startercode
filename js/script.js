@@ -26,14 +26,16 @@
   
 //FUNCTIONS
  
-
+function check() {
+        
+}
 
 // DOCUMENT READY FUNCTION
 /*global $*/
     $(document).ready(function() {
         console.log("human");
         $("#submit").click(function(){
-           if($("#type").val()==="rock" || "paper" || "sissors"){
+           if(check){
                 you = $("#type").val();
                 console.log(you);
            } else {
