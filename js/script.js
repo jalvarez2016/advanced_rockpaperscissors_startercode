@@ -33,9 +33,9 @@ function check() {
           return true;
   } else if($("#type").val()=== "sissor"){
           return true;
-  } else {
+  } else if($("#type").val()=== "dog"){
           return false;
-  }
+  } 
 }
 
 function computerChoise() {
@@ -69,6 +69,9 @@ function decideWinner(){
         $("#fate").html(" congrates you get to live");
  } else if (you === "sissor" && com === "sissor"){
         $("#fate").html("welp . . . try again");
+ } else if (you === "dog"){
+        $("#fate").html("What? How'd you do that? Oh my! You have been granted infite wisedom through your recognition of the superior species.");
+        //doesn't actually get activated
  }
 }
 
@@ -78,7 +81,12 @@ function decideWinner(){
         console.log("human");
         console.log(computerChoise());
         $("#submit").click(function(){
-           if(check()){
+           if ($("#type").val() === "dog"){
+                winner === "you";
+                $("#fate").html("Good cause dog beats everything and don't you question it!"); 
+                $("#you").html("you : " + ($("#type").val()));
+                $("#com").html("Computers pick : " + computerChoise());
+           } else if(check()){
                 you = $("#type").val();
                 console.log(you);
                 $("#you").html("you : " + ($("#type").val()));
