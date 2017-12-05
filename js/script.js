@@ -22,7 +22,7 @@
  var you = "";
  var com = "";
  var winner = "";
- var choises = ["rock","paper","sissors"];
+ var choises = ["rock","paper","scissors"];
   
 //FUNCTIONS
  
@@ -31,7 +31,7 @@ function check() {
           return true;
   } else if($("#type").val()=== "paper"){
           return true;
-  } else if($("#type").val()=== "sissor"){
+  } else if($("#type").val()=== "scissors"){
           return true;
   } else if($("#type").val()=== "dog"){
           return false;
@@ -39,15 +39,19 @@ function check() {
 }
 
 function computerChoise() {
- var decider = Math.ceil(Math.random()*3);
+ var decider = Math.floor(Math.random()*3);
  console.log(decider);
- if( decider === 1){
-        return com = "paper";
- } else if ( decider === 2){
-        return com = "rock";
- } else if ( decider === 3){
-        return com = "sissor";
- }
+ console.log(choises[decider]);
+  com = choises[decider];
+ console.log(com);
+ return com;
+ //if( decider === 0){
+ //       return com = "rock";
+ //} else if ( decider === 1){
+ //       return com = "paper";
+ //} else if ( decider === 2){
+ //       return com = "scissors";
+ //}
 }
 
 function decideWinner(){
@@ -55,19 +59,19 @@ function decideWinner(){
         $("#fate").html("congrates you get to die");
  } else if (you === "rock" && com === "rock"){
         $("#fate").html("welp . . . try again");
- } else if (you === "rock" && com === "sissor"){
+ } else if (you === "rock" && com === "scissors"){
         $("#fate").html(" congrates you get to live");
  } else if (you === "paper" && com === "rock"){
         $("#fate").html(" congrates you get to live another day");
  } else if (you === "paper" && com === "paper"){
         $("#fate").html("welp . . . try again");
- } else if (you === "paper" && com === "sissor"){
+ } else if (you === "paper" && com === "scissors"){
         $("#fate").html("com congrates you get to die");
- } else if (you === "sissor" && com === "rock"){
+ } else if (you === "scissors" && com === "rock"){
         $("#fate").html(" congrates you get to die");
- } else if (you === "sissor" && com === "paper"){
+ } else if (you === "scissors" && com === "paper"){
         $("#fate").html(" congrates you get to live");
- } else if (you === "sissor" && com === "sissor"){
+ } else if (you === "scissors" && com === "scissors"){
         $("#fate").html("welp . . . try again");
  } else if (you === "dog"){
         $("#fate").html("What? How'd you do that? Oh my! You have been granted infite wisedom through your recognition of the superior species.");
@@ -83,7 +87,8 @@ function decideWinner(){
         $("#submit").click(function(){
            if ($("#type").val() === "dog"){
                 winner === "you";
-                $("#fate").html("Good cause dog beats everything and don't you question it!"); 
+                $("#fate").html("Good cause dog beats everything and don't you question it!");
+                $("body").append("<button>" + "<a href='die.html'>" + "Cats should be extinct and click here if you want to know why" + "</a>" + "</button>");
                 $("#you").html("you : " + ($("#type").val()));
                 $("#com").html("Computers pick : " + computerChoise());
            } else if(check()){
@@ -94,8 +99,10 @@ function decideWinner(){
                 decideWinner();
            } else {
                 console.log("invalid");
+                $("#fate").html("How dare you. Next time read the instruction. You pleb.");
            }
            
         });
+        
         
     });
