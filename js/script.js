@@ -19,21 +19,29 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
 //GLOBAL VARIABLES
+ var numwin = 0;
  var you = "";
  var com = "";
  var winner = "";
  var choises = ["rock","paper","scissors"];
   
 //FUNCTIONS
+
+function forceLower(){
+ var x = $("#type").val().toLowerCase();
+ console.log(x);
+}
  
 function check() {
-  if($("#type").val()=== "rock"){
+    forceLower();
+var x = $("#type").val().toLowerCase();
+  if(x=== "rock"){
           return true;
-  } else if($("#type").val()=== "paper"){
+  } else if(x=== "paper"){
           return true;
-  } else if($("#type").val()=== "scissors"){
+  } else if(x=== "scissors"){
           return true;
-  } else if($("#type").val()=== "dog"){
+  } else if(x=== "dog"){
           return false;
   } 
 }
@@ -61,8 +69,10 @@ function decideWinner(){
         $("#fate").html("welp . . . try again");
  } else if (you === "rock" && com === "scissors"){
         $("#fate").html(" congrates you get to live");
+        numwin ++;
  } else if (you === "paper" && com === "rock"){
         $("#fate").html(" congrates you get to live another day");
+        numwin ++;
  } else if (you === "paper" && com === "paper"){
         $("#fate").html("welp . . . try again");
  } else if (you === "paper" && com === "scissors"){
@@ -71,6 +81,7 @@ function decideWinner(){
         $("#fate").html(" congrates you get to die");
  } else if (you === "scissors" && com === "paper"){
         $("#fate").html(" congrates you get to live");
+        numwin ++;
  } else if (you === "scissors" && com === "scissors"){
         $("#fate").html("welp . . . try again");
  } else if (you === "dog"){
@@ -85,21 +96,23 @@ function decideWinner(){
         console.log("human");
         console.log(computerChoise());
         $("#submit").click(function(){
-           if ($("#type").val() === "dog"){
+           if (x === "dog"){
                 winner === "you";
                 $("#fate").html("Good cause dog beats everything and don't you question it!");
                 $("body").append("<button>" + "<a href='die.html'>" + "Cats should be extinct and click here if you want to know why" + "</a>" + "</button>");
-                $("#you").html("you : " + ($("#type").val()));
+                $("#you").html("you : " + x);
                 $("#com").html("Computers pick : " + computerChoise());
            } else if(check()){
-                you = $("#type").val();
+               var x = $("#type").val().toLowerCase();
+                $("#counter").html("Games won : " + numwin);
+                you = x;
                 console.log(you);
-                $("#you").html("you : " + ($("#type").val()));
+                $("#you").html("you : " + x);
                 $("#com").html("Computers pick : " + computerChoise());
                 decideWinner();
            } else {
                 console.log("invalid");
-                $("#fate").html("How dare you. Next time read the instruction. You pleb.");
+                $("#fate").html("How dare you. Next time read the instruction. You pleb. Also it's invalid.");
            }
            
         });

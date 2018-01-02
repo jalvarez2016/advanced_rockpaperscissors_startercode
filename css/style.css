@@ -13,4 +13,5 @@ body{
 #fate {
     position: relative;
     top:50px;
+    text-align: center;
 }
